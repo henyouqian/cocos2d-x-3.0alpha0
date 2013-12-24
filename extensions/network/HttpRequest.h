@@ -183,7 +183,7 @@ public:
     }
     
     //lw begin
-    inline void setCallback(std::function<void(HttpClient*, HttpResponse*)> func) {
+    inline void setCallback(const std::function<void(HttpClient*, HttpResponse*)> &func) {
         _func = func;
     }
     inline std::function<void(HttpClient*, HttpResponse*)> getCallback() {
