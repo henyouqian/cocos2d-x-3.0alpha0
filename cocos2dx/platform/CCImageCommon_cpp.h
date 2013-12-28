@@ -508,8 +508,14 @@ bool Image::initWithImageData(const unsigned char * data, int dataLen)
             ret = initWithATITCData(unpackedData, unpackedLen);
             break;
         default:
-            CCAssert(false, "unsupport image format!");
+            //origin begin
+//            CCAssert(false, "unsupport image format!");
+//            break;
+            //origin end
+            //lw begin
+            CCLOGERROR("unsupport image format!");
             break;
+            //lw end
         }
         
         if(unpackedData != data)

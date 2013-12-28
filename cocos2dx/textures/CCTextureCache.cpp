@@ -205,9 +205,18 @@ void TextureCache::loadImage()
         Image *image = new Image();
         if (image && !image->initWithImageFileThreadSafe(filename))
         {
+            //origin begin
+//            CC_SAFE_RELEASE(image);
+//            CCLOG("can not load %s", filename);
+//            continue;
+            //origin end
+            //lw begin
+            CCLOG("can not load %s, just use default", filename);
             CC_SAFE_RELEASE(image);
-            CCLOG("can not load %s", filename);
-            continue;
+            image = new Image();
+            auto ok = image->initWithImageFileThreadSafe("default/default.png");
+            CCASSERT(ok, "default.png missing");
+            //lw end
         }
 
         // generate image info
