@@ -586,6 +586,12 @@ void Director::replaceScene(Scene *scene)
 
 void Director::pushScene(Scene *scene)
 {
+    //lw begin
+    if (_nextScene == scene || scene == _runningScene) {
+        return;
+    }
+    //lw end
+        
     CCASSERT(scene, "the scene should not null");
 
     _sendCleanupToScene = false;

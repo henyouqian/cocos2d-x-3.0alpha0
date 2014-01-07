@@ -73,6 +73,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #import "CCEGLView.h"
 //CLASS IMPLEMENTATIONS:
 
+
 #define IOS_MAX_TOUCHES_COUNT     10
 
 static CCEAGLView *view = 0;
