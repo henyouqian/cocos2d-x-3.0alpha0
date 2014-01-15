@@ -474,6 +474,16 @@ void HttpClient::send(HttpRequest* request)
     s_SleepCondition.notify_one();
 }
 
+//lw begin
+void HttpClient::cancelAllRequest() {
+    s_requestQueueMutex.lock();
+    s_requestQueue->removeAllObjects();
+    s_requestQueueMutex.unlock();
+    
+    s_asyncRequestCount -= s_requestQueue->count();
+}
+//lw end
+
 // Poll and notify main thread if responses exists in queue
 void HttpClient::dispatchResponseCallbacks(float delta)
 {

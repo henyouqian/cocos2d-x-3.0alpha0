@@ -62,6 +62,9 @@ public:
      */
     void send(HttpRequest* request);
   
+    //lw begin
+    void cancelAllRequest();
+    //lw end
     
     /**
      * Change the connect timeout
