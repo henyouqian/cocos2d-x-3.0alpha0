@@ -247,9 +247,14 @@ public:
      */
     void popScene();
     
+    //lw begin
     template<class T>
-    void popSceneWithTransition(float t) {
+    void popSceneWithTransition(Scene *scene, float t) {
         CCAssert(_runningScene != NULL, "running scene should not null");
+        
+        if ((Scene*)_scenesStack->getLastObject() != scene) {
+            return;
+        }
         
         _scenesStack->removeLastObject();
         unsigned int c = _scenesStack->count();
@@ -265,6 +270,7 @@ public:
             _nextScene = trans;
         }
     }
+    //lw end
 
     /** Pops out all scenes from the queue until the root scene in the queue.
      * This scene will replace the running one.
