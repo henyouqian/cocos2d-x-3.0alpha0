@@ -554,7 +554,10 @@ void ControlButton::needsLayout()
     }
     if (_titleLabel != NULL)
     {
-        _titleLabel->setPosition(Point (getContentSize().width / 2, getContentSize().height / 2));
+        //lw begin
+        //_titleLabel->setPosition(Point (getContentSize().width / 2, getContentSize().height / 2));
+        _titleLabel->setPosition(Point (getContentSize().width / 2 + _titleOffset.x, getContentSize().height / 2 + _titleOffset.y));
+        //lw end
     }
     
     // Update the background sprite
@@ -616,7 +619,10 @@ void ControlButton::needsLayout()
     
     if (_titleLabel != NULL)
     {
-        _titleLabel->setPosition(Point(getContentSize().width/2, getContentSize().height/2));
+        //lw begin
+        //_titleLabel->setPosition(Point(getContentSize().width/2, getContentSize().height/2));
+        _titleLabel->setPosition(Point(getContentSize().width/2 + _titleOffset.x, getContentSize().height/2 + _titleOffset.y));
+        //lw end
         // Make visible the background and the label
         _titleLabel->setVisible(true);
     }

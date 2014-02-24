@@ -207,6 +207,14 @@ public:
     background will use the prefered size of the background image. */
     bool doesAdjustBackgroundImage();
     void setAdjustBackgroundImage(bool adjustBackgroundImage);
+    
+    //lw begin
+    void setTitleOffset(float x, float y) {
+        _titleOffset = Point(x, y);
+        needsLayout();
+    }
+    Point _titleOffset;
+    //lw end
 
 protected:
     bool _isPushed;
